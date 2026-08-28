@@ -1,10 +1,31 @@
 import { getInitData } from './telegram';
 
-// Base URL for the backend API.
-// Configure via VITE_API_URL. The fallback only applies in local development.
-const API_BASE =
-  (import.meta.env.VITE_API_URL as string | undefined)?.replace(/\/$/, '') ||
-  'http://localhost:4000/api';
+// Base URL for the backend API (must include the /api prefix).
+// Configure per environment with VITE_API_URL:
+//   dev:      .env / .env.local        -> http://localhost:4000/api
+//   prod:     .env.production / Vercel -> https://mini-app-backend-three.vercel.app/api
+function resolveApiBase(): string {
+  const raw = (import.meta.env.VITE_API_URL as string | undefined)?.trim().replace(/\/+$/, '');
+  if (raw) {
+    if (!import.meta.env.DEV && /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?($|\/)/i.test(raw)) {
+      throw new Error(
+        'VITE_API_URL points to localhost. In production it must be the deployed backend URL, e.g. ' +
+          'https://mini-app-backend-three.vercel.app/api',
+      );
+    }
+    return raw;
+  }
+  if (import.meta.env.DEV) {
+    // Local development convenience — never used in production builds.
+    return 'http://localhost:4000/api';
+  }
+  throw new Error(
+    'VITE_API_URL is not configured. In production set it to the deployed backend URL, e.g. ' +
+      'https://mini-app-backend-three.vercel.app/api',
+  );
+}
+
+const API_BASE = resolveApiBase();
 
 const TOKEN_KEY = 'sws_token';
 
@@ -56,7 +77,8 @@ async function request<T>(path: string, options: RequestInit = {}, explicitAuth?
   let res: Response;
   try {
     res = await fetch(`${API_BASE}${path}`, { ...options, headers });
-  } catch {
+  } catch (e) {
+    if (import.meta.env.DEV) console.error(`[api] fetch failed for ${path}:`, e);
     throw new ApiError(0, 'Не удалось подключиться к серверу. Попробуйте ещё раз.');
   }
 

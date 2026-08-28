@@ -66,6 +66,12 @@ export async function authTelegram(req: AuthedRequest, res: Response, next: Next
   }
 
   // 3) Dev mode (no bot token): base64 dev user header or default.
+  //    Only available outside production — in production a misconfigured bot
+  //    token must not silently expose the whole API.
+  if (config.nodeEnv === 'production') {
+    res.status(401).json({ error: 'Unauthorized: Mini App auth is not configured.' });
+    return;
+  }
   try {
     const raw = req.headers['x-dev-user'] as string;
     if (raw) {

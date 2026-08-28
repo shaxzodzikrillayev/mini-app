@@ -1,8 +1,26 @@
 import { useAuth } from '../store/auth';
 
-const API_BASE =
-  (import.meta.env.VITE_API_URL as string | undefined)?.replace(/\/$/, '') ||
-  'http://localhost:4000/api/admin';
+function resolveApiBase(): string {
+  const raw = (import.meta.env.VITE_API_URL as string | undefined)?.trim().replace(/\/+$/, '');
+  if (raw) {
+    if (!import.meta.env.DEV && /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?($|\/)/i.test(raw)) {
+      throw new Error(
+        'VITE_API_URL points to localhost. In production it must be the deployed backend admin URL, e.g. ' +
+          'https://mini-app-backend-three.vercel.app/api/admin',
+      );
+    }
+    return raw;
+  }
+  if (import.meta.env.DEV) {
+    return 'http://localhost:4000/api/admin';
+  }
+  throw new Error(
+    'VITE_API_URL is not configured. In production set it to the deployed backend admin URL, e.g. ' +
+      'https://mini-app-backend-three.vercel.app/api/admin',
+  );
+}
+
+const API_BASE = resolveApiBase();
 
 export class ApiError extends Error {
   status: number;
