@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Env files - never commit secrets
+.env
+.env.local
+.env.production
+.env.development
+*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# SQLite dev database
+*.db
+*.sqlite
+*.sqlite3
+
+# Vite / TypeScript build artifacts (emitted next to config)
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts
+vite.config.js.map

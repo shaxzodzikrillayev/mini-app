@@ -1,0 +1,18 @@
+{
+  "name": "shahzod-web-studio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shahzod Web Studio — Telegram Bot + Mini App + Backend + Admin Panel",
+  "workspaces": [
+    "backend",
+    "mini-app",
+    "admin"
+  ],
+  "scripts": {
+    "build": "npm run build --workspace backend && npm run build --workspace mini-app && npm run build --workspace admin",
+    "dev:backend": "npm run dev --workspace backend",
+    "dev:mini-app": "npm run dev --workspace mini-app",
+    "dev:admin": "npm run dev --workspace admin",
+    "start": "npm run start --workspace backend"
+  }
+}
