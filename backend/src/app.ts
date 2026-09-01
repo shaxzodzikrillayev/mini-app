@@ -56,9 +56,25 @@ export function createApp(): express.Express {
     });
   }
 
-  // Health check (public, outside auth)
+  // Health checks (public, outside auth). Registered before the /api router
+  // mounts so they are not intercepted by the authTelegram middleware.
   app.get('/api/health', (_req, res) => {
     res.json({ status: 'ok', time: new Date().toISOString(), db: config.databaseUrl ? 'postgres' : 'memory' });
+  });
+
+  // Safe configuration diagnostics for the Mini App setup check.
+  // Reports ONLY presence (boolean), never actual secret values.
+  app.get('/api/health/config', (_req, res) => {
+    res.json({
+      telegramBotTokenConfigured: !!config.telegramBotToken,
+      telegramAdminIdConfigured: !!config.telegramAdminId,
+      jwtSecretConfigured: !!config.jwtSecret && config.jwtSecret !== 'change-me-to-a-long-random-string',
+      miniAppUrlConfigured: !!config.miniAppUrl,
+      adminUrlConfigured: !!config.adminUrl,
+      databaseConfigured: !!config.databaseUrl,
+      miniAppUrlIsHttps: /^https:\/\//i.test(config.miniAppUrl),
+      production: config.nodeEnv === 'production',
+    });
   });
 
   app.use('/api/auth', authRoutes);
