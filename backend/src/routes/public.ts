@@ -11,23 +11,11 @@ router.get('/health', (_req, res) => {
   res.json({ status: 'ok', time: new Date().toISOString() });
 });
 
-// Protected mini-app routes (validated Telegram initData)
-router.use(authTelegram);
-
-// Get or create current user (REST auth middleware already resolves req.user)
-async function resolveUser(req: AuthedRequest, res: any) {
-  if (req.user) return req.user;
-  res.status(401).json({ error: 'Missing user.' });
-  return null;
-}
-
-router.get('/me', async (req: AuthedRequest, res) => {
-  const user = await resolveUser(req, res);
-  if (!user) return;
-  const orders = await db.getOrdersByUser(user.id);
-  const active = orders.filter((o) => ['Новый', 'На рассмотрении', 'В работе', 'Проверка'].includes(o.status));
-  res.json({ user, orderCount: orders.length, activeProjects: active.length });
-});
+// ---------------------------------------------------------------------------
+// PUBLIC routes — no authentication required.
+// These must NOT go through authTelegram, otherwise the frontend (which does
+// not attach Telegram initData to public fetches) would get 401.
+// ---------------------------------------------------------------------------
 
 // Services
 router.get('/services', async (_req, res) => {
@@ -48,6 +36,27 @@ router.get('/pricing', async (_req, res) => {
     projectTypes: group('project'),
     features: group('feature'),
   });
+});
+
+// ---------------------------------------------------------------------------
+// PROTECTED mini-app routes (validated Telegram initData / JWT).
+// mount authTelegram only HERE so public routes above remain open.
+// ---------------------------------------------------------------------------
+router.use(authTelegram);
+
+// Get or create current user (REST auth middleware already resolves req.user)
+async function resolveUser(req: AuthedRequest, res: any) {
+  if (req.user) return req.user;
+  res.status(401).json({ error: 'Missing user.' });
+  return null;
+}
+
+router.get('/me', async (req: AuthedRequest, res) => {
+  const user = await resolveUser(req, res);
+  if (!user) return;
+  const orders = await db.getOrdersByUser(user.id);
+  const active = orders.filter((o) => ['Новый', 'На рассмотрении', 'В работе', 'Проверка'].includes(o.status));
+  res.json({ user, orderCount: orders.length, activeProjects: active.length });
 });
 
 // Create order

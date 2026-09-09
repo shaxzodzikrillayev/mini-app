@@ -18,6 +18,7 @@ const LANG = {
     welcome:
       '🚀 Добро пожаловать в **Shahzod Web Studio**, {name}! 👋\n\nСоздаём современные сайты, Telegram Mini Apps и цифровые решения для бизнеса.\n\nВыберите нужное действие:',
     openApp: '🚀 Открыть приложение',
+    register: '🔐 Регистрация',
     lang: '🌐 Язык',
     services: '💼 Услуги',
     contact: '📞 Связаться с нами',
@@ -30,7 +31,7 @@ const LANG = {
     appMsg:
       '🚀 Открываем **Shahzod Web Studio**…\n\nНажмите кнопку ниже, чтобы запустить приложение прямо в Telegram:',
     helpText:
-      '❓ **Помощь — Shahzod Web Studio**\n\nМы создаём современные сайты, Telegram-боты и Mini Apps под ключ.\n\n🚀 Открыть приложение: /app\n💼 Услуги: /services\n🎨 Портфолио: /portfolio\n📦 Мои заказы: /orders\n👤 Профиль: /profile\n\n📋 Главное меню: /start\n\n💬 Telegram: @shahzodwebstudio\n📧 Email: hello@shahzodstudio.com',
+      '❓ **Помощь — Shahzod Web Studio**\n\nМы создаём современные сайты, Telegram-боты и Mini Apps под ключ.\n\n🚀 Открыть приложение: /app\n🔐 Регистрация: /register\n🚀 Заказать проект: /order\n💼 Услуги: /services\n🎨 Портфолио: /portfolio\n📦 Мои заказы: /orders\n👤 Профиль: /profile\n\n📋 Главное меню: /start\n\n💬 Telegram: @shahzodwebstudio\n📧 Email: hello@shahzodstudio.com',
     chooseLang: '🌐 Выберите язык:',
     contactText:
       '📞 **Связаться с нами**\n\nНапишите нам — мы на связи 24/7.\n\n💬 Telegram: @shahzodwebstudio\n📧 Email: hello@shahzodstudio.com\n🌐 Сайт: shahzodstudio.com',
@@ -40,6 +41,7 @@ const LANG = {
     welcome:
       '🚀 Assalomu alaykum, **Shahzod Web Studio**ga xush kelibsiz, {name}! 👋\n\nZamonaviy saytlar, Telegram Mini Apps va biznes uchun raqamli yechimlar yaratamiz.\n\nKerakli amalni tanlang:',
     openApp: '🚀 Ilovani ochish',
+    register: '🔐 Ro\'yxatdan o\'tish',
     lang: '🌐 Til',
     services: '💼 Xizmatlar',
     contact: '📞 Biz bilan bog‘lanish',
@@ -52,7 +54,7 @@ const LANG = {
     appMsg:
       '🚀 **Shahzod Web Studio** ochilmoqda…\n\nIlovani Telegram orqali ishga tushirish uchun quyidagi tugmani bosing:',
     helpText:
-      '❓ **Yordam — Shahzod Web Studio**\n\nZamonaviy saytlar, Telegram-botlar va Mini Apps yaratamiz.\n\n🚀 Ilovani ochish: /app\n💼 Xizmatlar: /services\n🎨 Portfolio: /portfolio\n📦 Buyurtmalarim: /orders\n👤 Profil: /profile\n\n📋 Asosiy menyu: /start\n\n💬 Telegram: @shahzodwebstudio\n📧 Email: hello@shahzodstudio.com',
+      '❓ **Yordam — Shahzod Web Studio**\n\nZamonaviy saytlar, Telegram-botlar va Mini Apps yaratamiz.\n\n🚀 Ilovani ochish: /app\n🔐 Ro\'yxatdan o\'tish: /register\n🚀 Buyurtma: /order\n💼 Xizmatlar: /services\n🎨 Portfolio: /portfolio\n📦 Buyurtmalarim: /orders\n👤 Profil: /profile\n\n📋 Asosiy menyu: /start\n\n💬 Telegram: @shahzodwebstudio\n📧 Email: hello@shahzodstudio.com',
     chooseLang: '🌐 Tilni tanlang:',
     contactText:
       '📞 **Biz bilan bog‘lanish**\n\nBizga yozing — doim aloqadamiz.\n\n💬 Telegram: @shahzodwebstudio\n📧 Email: hello@shahzodstudio.com\n🌐 Sayt: shahzodstudio.com',
@@ -62,6 +64,7 @@ const LANG = {
     welcome:
       '🚀 Welcome to **Shahzod Web Studio**, {name}! 👋\n\nWe create modern websites, Telegram Mini Apps and digital solutions for business.\n\nChoose an action:',
     openApp: '🚀 Open the app',
+    register: '🔐 Register',
     lang: '🌐 Language',
     services: '💼 Services',
     contact: '📞 Contact us',
@@ -74,7 +77,7 @@ const LANG = {
     appMsg:
       '🚀 Opening **Shahzod Web Studio**…\n\nTap the button below to launch the app right inside Telegram:',
     helpText:
-      '❓ **Help — Shahzod Web Studio**\n\nWe build modern websites, Telegram bots and Mini Apps.\n\n🚀 Open the app: /app\n💼 Services: /services\n🎨 Portfolio: /portfolio\n📦 My orders: /orders\n👤 Profile: /profile\n\n📋 Main menu: /start\n\n💬 Telegram: @shahzodwebstudio\n📧 Email: hello@shahzodstudio.com',
+      '❓ **Help — Shahzod Web Studio**\n\nWe build modern websites, Telegram bots and Mini Apps.\n\n🚀 Open the app: /app\n🔐 Register: /register\n🚀 Order: /order\n💼 Services: /services\n🎨 Portfolio: /portfolio\n📦 My orders: /orders\n👤 Profile: /profile\n\n📋 Main menu: /start\n\n💬 Telegram: @shahzodwebstudio\n📧 Email: hello@shahzodstudio.com',
     chooseLang: '🌐 Choose language:',
     contactText:
       '📞 **Contact us**\n\nWrite to us — we are available 24/7.\n\n💬 Telegram: @shahzodwebstudio\n📧 Email: hello@shahzodstudio.com\n🌐 Site: shahzodstudio.com',
@@ -82,9 +85,29 @@ const LANG = {
   },
 };
 
+interface OrderFlowState {
+  step: 'service' | 'description' | 'budget' | 'confirm';
+  service: string;
+  description: string;
+  budget: string;
+}
+
+const SERVICES_LIST = [
+  { key: 'landing', label: '🌐 Landing Page', value: '$150–300' },
+  { key: 'business', label: '🏢 Business Website', value: '$300–600' },
+  { key: 'ecommerce', label: '🛒 E-commerce', value: '$500–1500' },
+  { key: 'ai_website', label: '🤖 AI Website', value: '$400–800' },
+  { key: 'mini_app', label: '📱 Telegram Mini App', value: '$500–1200' },
+  { key: 'bot', label: '🤖 Telegram Bot', value: '$200–500' },
+  { key: 'web_app', label: '⚙️ Web App', value: '$400–1000' },
+  { key: 'admin_panel', label: '📊 Admin Panel', value: '$300–700' },
+  { key: 'custom', label: '🔥 Custom Project', value: 'по договорённости' },
+];
+
 export class StudioBot {
   private bot: TelegramBot | null = null;
   private userLang = new Map<number, Lang>();
+  private orderFlows = new Map<number, OrderFlowState>();
 
   constructor(private token = config.telegramBotToken) {}
 
@@ -158,11 +181,44 @@ export class StudioBot {
       this.onStart(msg);
     });
 
+    bot.onText(/^\/order$/, (msg) => {
+      this.startOrderFlow(msg.chat.id, msg.from?.first_name || '');
+    });
+
+    bot.onText(/^\/register$/, (msg) => {
+      this.sendRegisterPrompt(msg.chat.id);
+    });
+
     bot.on('callback_query', (query) => {
       if (!query.message) return;
       const chatId = query.message.chat.id;
       const data = query.data || '';
       const msg = query.message;
+
+      // Order flow callbacks
+      if (data.startsWith('order_svc_')) {
+        bot.answerCallbackQuery(query.id).catch(() => {});
+        const svcKey = data.replace('order_svc_', '');
+        const svc = SERVICES_LIST.find((s) => s.key === svcKey);
+        if (svc) {
+          this.setOrderField(chatId, 'service', svc.label);
+          this.askOrderDescription(chatId);
+        }
+        return;
+      }
+      if (data === 'order_confirm_yes') {
+        bot.answerCallbackQuery(query.id).catch(() => {});
+        this.submitBotOrder(chatId);
+        return;
+      }
+      if (data === 'order_confirm_no') {
+        bot.answerCallbackQuery(query.id).catch(() => {});
+        this.cancelOrderFlow(chatId);
+        bot.sendMessage(chatId, '❌ Заказ отменён. Возвращаемся в главное меню.').catch(() => {});
+        this.showMainMenu(chatId, msg.from?.first_name || '');
+        return;
+      }
+
       if (data === 'lang_ru' || data === 'lang_uz' || data === 'lang_en') {
         const lang = data.split('_')[1] as Lang;
         this.userLang.set(chatId, lang);
@@ -178,6 +234,12 @@ export class StudioBot {
       } else if (data === 'contact') {
         bot.answerCallbackQuery(query.id).catch(() => {});
         bot.sendMessage(chatId, this.t(chatId, 'contactText')).catch(() => {});
+      } else if (data === 'register') {
+        bot.answerCallbackQuery(query.id).catch(() => {});
+        this.sendRegisterPrompt(chatId);
+      } else if (data === 'start_order') {
+        bot.answerCallbackQuery(query.id).catch(() => {});
+        this.startOrderFlow(chatId, msg.from?.first_name || '');
       } else {
         bot.answerCallbackQuery(query.id).catch(() => {});
       }
@@ -189,9 +251,33 @@ export class StudioBot {
       if (!text) return;
       const trimmed = text.trim();
 
+      // Handle order flow free-text steps
+      if (this.orderFlows.has(chatId)) {
+        const flow = this.orderFlows.get(chatId)!;
+        if (flow.step === 'description') {
+          this.setOrderField(chatId, 'description', trimmed);
+          this.askOrderBudget(chatId);
+          return;
+        }
+        if (flow.step === 'budget') {
+          this.setOrderField(chatId, 'budget', trimmed);
+          this.showOrderSummary(chatId);
+          return;
+        }
+        // If in confirm step but user typed something, treat as no
+        if (flow.step === 'confirm') {
+          this.cancelOrderFlow(chatId);
+          bot.sendMessage(chatId, '❌ Заказ отменён.').catch(() => {});
+          this.showMainMenu(chatId, msg.from?.first_name || '');
+          return;
+        }
+      }
+
       if (/^\/[a-z]+$/i.test(trimmed)) console.log(`[bot] command: ${trimmed}`);
 
       if (trimmed === '/app') return this.openAppPrompt(chatId, '/');
+      if (trimmed === '/order') return this.startOrderFlow(chatId, msg.from?.first_name || '');
+      if (trimmed === '/register') return this.sendRegisterPrompt(chatId);
       if (trimmed === '/services') return this.openServices(chatId);
       if (trimmed === '/portfolio') return this.openAppPrompt(chatId, '/portfolio');
       if (trimmed === '/orders') return this.openAppPrompt(chatId, '/orders');
@@ -240,6 +326,155 @@ export class StudioBot {
     } catch {}
   }
 
+  // ── Order Flow (step-by-step bot ordering) ──────────────────────────────
+
+  private startOrderFlow(chatId: number, firstName: string): void {
+    const bot = this.bot!;
+    this.orderFlows.set(chatId, { step: 'service', service: '', description: '', budget: '' });
+
+    const keyboard: TelegramBot.InlineKeyboardButton[][] = [];
+    for (let i = 0; i < SERVICES_LIST.length; i += 2) {
+      const row: TelegramBot.InlineKeyboardButton[] = [
+        { text: SERVICES_LIST[i].label, callback_data: `order_svc_${SERVICES_LIST[i].key}` },
+      ];
+      if (SERVICES_LIST[i + 1]) {
+        row.push({ text: SERVICES_LIST[i + 1].label, callback_data: `order_svc_${SERVICES_LIST[i + 1].key}` });
+      }
+      keyboard.push(row);
+    }
+    keyboard.push([{ text: '❌ Отмена', callback_data: 'order_confirm_no' }]);
+
+    bot.sendMessage(chatId, `📝 **Новый заказ**\n\nПривет, ${firstName || 'друг'}!\nДавай создадим заказ.\n\nШаг 1/3 — Выберите тип проекта:`, {
+      parse_mode: 'Markdown',
+      reply_markup: { inline_keyboard: keyboard },
+    }).catch(() => {});
+  }
+
+  private setOrderField(chatId: number, field: keyof OrderFlowState, value: string): void {
+    const flow = this.orderFlows.get(chatId);
+    if (!flow) return;
+    (flow as any)[field] = value;
+  }
+
+  private askOrderDescription(chatId: number): void {
+    const bot = this.bot!;
+    const flow = this.orderFlows.get(chatId);
+    if (!flow) return;
+    flow.step = 'description';
+
+    bot.sendMessage(chatId, `✅ Проект: *${flow.service}*\n\nШаг 2/3 — Опишите ваш проект подробно.\nЧто нужно сделать? Какие задачи?`, {
+      parse_mode: 'Markdown',
+    }).catch(() => {});
+  }
+
+  private askOrderBudget(chatId: number): void {
+    const bot = this.bot!;
+    const flow = this.orderFlows.get(chatId);
+    if (!flow) return;
+    flow.step = 'budget';
+
+    bot.sendMessage(chatId, `✅ Описание принято!\n\nШаг 3/3 — Укажите приблизительный бюджет (в $).\nМожно написать число или "по договорённости".`, {
+      parse_mode: 'Markdown',
+    }).catch(() => {});
+  }
+
+  private showOrderSummary(chatId: number): void {
+    const bot = this.bot!;
+    const flow = this.orderFlows.get(chatId);
+    if (!flow) return;
+    flow.step = 'confirm';
+
+    const text = [
+      '📋 **Проверьте ваш заказ:**',
+      '',
+      `💼 Проект: *${flow.service}*`,
+      `📝 Описание: ${flow.description}`,
+      `💰 Бюджет: ${flow.budget || 'по договорённости'}`,
+      '',
+      'Всё верно?',
+    ].join('\n');
+
+    bot.sendMessage(chatId, text, {
+      parse_mode: 'Markdown',
+      reply_markup: {
+        inline_keyboard: [
+          [{ text: '✅ Да, создать заказ', callback_data: 'order_confirm_yes' }, { text: '❌ Отмена', callback_data: 'order_confirm_no' }],
+        ],
+      },
+    }).catch(() => {});
+  }
+
+  private async submitBotOrder(chatId: number): Promise<void> {
+    const bot = this.bot!;
+    const flow = this.orderFlows.get(chatId);
+    if (!flow) return;
+
+    const budgetNum = parseInt(flow.budget.replace(/[^0-9]/g, ''), 10);
+    const budget = isNaN(budgetNum) ? null : budgetNum;
+
+    try {
+      const user = await db.findOrCreateUser({
+        telegramId: String(chatId),
+        username: null,
+        firstName: 'User',
+        language: 'ru',
+      });
+
+      const order = await db.createOrder({
+        userId: user.id,
+        service: flow.service,
+        description: flow.description,
+        budget,
+        price: null,
+      });
+
+      this.cancelOrderFlow(chatId);
+
+      await this.notifyAdminNewOrder(order, {
+        telegramId: chatId,
+        firstName: user.firstName,
+        username: user.username || undefined,
+      });
+
+      const text = [
+        `✅ **Заказ #${order.orderNumber} успешно создан!**`,
+        '',
+        `💼 Проект: ${flow.service}`,
+        `📝 Описание: ${flow.description}`,
+        `💰 Бюджет: ${flow.budget || 'по договорённости'}`,
+        '',
+        '📦 Статус: *Новый*',
+        '',
+        'Мы рассмотрим вашу заявку и свяжемся с вами!',
+      ].join('\n');
+
+      bot.sendMessage(chatId, text, { parse_mode: 'Markdown' }).catch(() => {});
+      this.showMainMenu(chatId, '');
+    } catch (e) {
+      console.warn('[bot] Failed to create order:', (e as Error).message);
+      bot.sendMessage(chatId, '❌ Ошибка при создании заказа. Попробуйте ещё раз или обратитесь в поддержку.').catch(() => {});
+      this.cancelOrderFlow(chatId);
+    }
+  }
+
+  private cancelOrderFlow(chatId: number): void {
+    this.orderFlows.delete(chatId);
+  }
+
+  private sendRegisterPrompt(chatId: number): void {
+    const bot = this.bot!;
+    bot.sendMessage(
+      chatId,
+      '🔐 **Регистрация в Shahzod Web Studio**\n\nНажмите кнопку ниже, чтобы открыть приложение и создать аккаунт. После регистрации вы сможете:\n\n📦 Отслеживать свои заказы\n💬 Общаться с командой\n📊 Управлять проектами',
+      {
+        parse_mode: 'Markdown',
+        reply_markup: {
+          inline_keyboard: [[{ text: '🚀 Открыть и зарегистрироваться', web_app: { url: this.appUrl('/register') } }]],
+        },
+      },
+    ).catch(() => {});
+  }
+
   private async onStart(msg: TelegramBot.Message): Promise<void> {
     const chatId = msg.chat.id;
     const from = msg.from;
@@ -268,15 +503,15 @@ export class StudioBot {
     const keyboard: TelegramBot.InlineKeyboardButton[][] = [
       [{ text: t.openApp, web_app: { url: this.appUrl('/') } }],
       [
-        { text: t.order, web_app: { url: this.appUrl('/calc') } },
+        { text: t.register || '🔐 Регистрация', callback_data: 'register' },
+        { text: t.order, callback_data: 'start_order' },
+      ],
+      [
         { text: t.services, web_app: { url: this.appUrl('/services') } },
-      ],
-      [
         { text: t.portfolio, web_app: { url: this.appUrl('/portfolio') } },
-        { text: t.myOrders, web_app: { url: this.appUrl('/orders') } },
       ],
       [
-        { text: t.ai, web_app: { url: this.appUrl('/ai') } },
+        { text: t.myOrders, web_app: { url: this.appUrl('/orders') } },
         { text: t.profile, web_app: { url: this.appUrl('/profile') } },
       ],
       [
@@ -364,6 +599,8 @@ export class StudioBot {
 
     const commands: TelegramBot.BotCommand[] = [
       { command: 'start', description: '🚀 Запустить / главное меню' },
+      { command: 'order', description: '🚀 Заказать проект' },
+      { command: 'register', description: '🔐 Регистрация в приложении' },
       { command: 'app', description: '🚀 Открыть приложение' },
       { command: 'services', description: '💼 Наши услуги' },
       { command: 'portfolio', description: '🎨 Портфолио проектов' },
