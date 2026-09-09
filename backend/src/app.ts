@@ -65,15 +65,22 @@ export function createApp(): express.Express {
   // Safe configuration diagnostics for the Mini App setup check.
   // Reports ONLY presence (boolean), never actual secret values.
   app.get('/api/health/config', (_req, res) => {
+    const miniAppUrlHttps = /^https:\/\//i.test(config.miniAppUrl);
+    const miniAppUrlIsLocalhost = /^https?:\/\/(localhost|127\.0\.0\.1)/i.test(config.miniAppUrl);
     res.json({
       telegramBotTokenConfigured: !!config.telegramBotToken,
       telegramAdminIdConfigured: !!config.telegramAdminId,
       jwtSecretConfigured: !!config.jwtSecret && config.jwtSecret !== 'change-me-to-a-long-random-string',
       miniAppUrlConfigured: !!config.miniAppUrl,
+      miniAppUrlIsHttps: miniAppUrlHttps,
+      miniAppUrlIsLocalhost: miniAppUrlIsLocalhost,
       adminUrlConfigured: !!config.adminUrl,
       databaseConfigured: !!config.databaseUrl,
-      miniAppUrlIsHttps: /^https:\/\//i.test(config.miniAppUrl),
       production: config.nodeEnv === 'production',
+      // Quick summary: can Telegram Mini App auth work?
+      miniAppAuthReady: config.nodeEnv === 'production'
+        ? !!config.telegramBotToken && miniAppUrlHttps && !miniAppUrlIsLocalhost
+        : true,
     });
   });
 
