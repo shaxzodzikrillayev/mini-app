@@ -188,6 +188,7 @@ export class MemoryDb implements Db {
     if (data.email !== undefined) user.email = data.email;
     if (data.passwordHash !== undefined) user.passwordHash = data.passwordHash;
     if (data.language !== undefined) user.language = data.language;
+    if (data.telegramId !== undefined) user.telegramId = data.telegramId as string | null;
     return user;
   }
 

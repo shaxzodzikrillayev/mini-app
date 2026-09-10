@@ -137,7 +137,8 @@ router.post('/orders/:id/messages', async (req: AuthedRequest, res) => {
 
 // AI consultant
 router.post('/ai/chat', async (req: AuthedRequest, res) => {
-  void resolveUser(req, res);
+  const user = await resolveUser(req, res);
+  if (!user) return;
 
   const messages = Array.isArray(req.body?.messages) ? req.body.messages : [];
   const history = messages

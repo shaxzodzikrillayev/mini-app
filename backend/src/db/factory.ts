@@ -10,7 +10,7 @@ export function initDb(): Db {
 
   if (type === 'postgres') {
     if (!config.databaseUrl) {
-      console.warn('[db] DATABASE_URL not set, falling back to in-memory database.');
+      console.warn('[db] DATABASE_URL not set, falling back to in-memory database. DATA WILL BE LOST ON RESTART!');
       db = new MemoryDb();
     } else {
       try {
@@ -23,7 +23,8 @@ export function initDb(): Db {
       }
     }
   } else {
-    console.log('[db] Using in-memory database (set DATABASE_URL for PostgreSQL).');
+    console.warn('[db] Using IN-MEMORY database. All users/orders/projects will be LOST when the server restarts or ' +
+      'when a new serverless instance handles a request. Set DATABASE_URL (e.g. PostgreSQL/Neon/Supabase) for persistence.');
     db = new MemoryDb();
   }
 

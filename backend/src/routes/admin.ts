@@ -35,10 +35,10 @@ router.get('/dashboard', async (_req, res) => {
 // Orders
 router.get('/orders', async (_req, res) => {
   const orders = await db.getOrders();
-  const result = await Promise.all(
+    const result = await Promise.all(
     orders.map(async (o) => {
       const user = await db.getUser(o.userId);
-      return { ...o, user: user ? { id: user.id, firstName: user.firstName, username: user.username } : null };
+      return { ...o, user: user ? { id: user.id, firstName: user.firstName, username: user.username, telegramId: user.telegramId } : null };
     }),
   );
   res.json(result);
@@ -48,7 +48,7 @@ router.get('/orders/:id', async (req, res) => {
   const order = await db.getOrder(Number(req.params.id));
   if (!order) return res.status(404).json({ error: 'Заявка не найдена.' });
   const user = await db.getUser(order.userId);
-  res.json({ ...order, user: user ? { id: user.id, firstName: user.firstName, username: user.username } : null });
+  res.json({ ...order, user: user ? { id: user.id, firstName: user.firstName, username: user.username, telegramId: user.telegramId } : null });
 });
 
 router.put('/orders/:id', async (req, res) => {

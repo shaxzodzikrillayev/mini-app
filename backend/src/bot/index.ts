@@ -31,10 +31,10 @@ const LANG = {
     appMsg:
       '🚀 Открываем **Shahzod Web Studio**…\n\nНажмите кнопку ниже, чтобы запустить приложение прямо в Telegram:',
     helpText:
-      '❓ **Помощь — Shahzod Web Studio**\n\nМы создаём современные сайты, Telegram-боты и Mini Apps под ключ.\n\n🚀 Открыть приложение: /app\n🔐 Регистрация: /register\n🚀 Заказать проект: /order\n💼 Услуги: /services\n🎨 Портфолио: /portfolio\n📦 Мои заказы: /orders\n👤 Профиль: /profile\n\n📋 Главное меню: /start\n\n💬 Telegram: @shahzodwebstudio\n📧 Email: hello@shahzodstudio.com',
+      '❓ **Помощь — Shahzod Web Studio**\n\nМы создаём современные сайты, Telegram-боты и Mini Apps под ключ.\n\n🚀 Открыть приложение: /app\n🔐 Регистрация: /register\n🚀 Заказать проект: /order\n💼 Услуги: /services\n🎨 Портфолио: /portfolio\n📦 Мои заказы: /orders\n👤 Профиль: /profile\n\n📋 Главное меню: /start\n\n💬 Telegram: https://t.me/shahzodwebstudio\n📧 Email: hello@shahzodstudio.com',
     chooseLang: '🌐 Выберите язык:',
     contactText:
-      '📞 **Связаться с нами**\n\nНапишите нам — мы на связи 24/7.\n\n💬 Telegram: @shahzodwebstudio\n📧 Email: hello@shahzodstudio.com\n🌐 Сайт: shahzodstudio.com',
+      '📞 **Связаться с нами**\n\nНапишите нам — мы на связи 24/7.\n\n💬 Telegram: https://t.me/shahzodwebstudio\n📧 Email: hello@shahzodstudio.com\n🌐 Сайт: shahzodstudio.com',
     servicesText: '🛠 **Наши услуги:**\n\n🌐 Landing Page\n🏢 Business Website\n🛒 E-commerce\n🤖 AI Website\n📱 Telegram Mini App\n🤖 Telegram Bot\n⚙️ Web App\n📊 Admin Panel\n🔥 Custom Project\n\nПодробнее в Mini App!',
   },
   uz: {
@@ -54,10 +54,10 @@ const LANG = {
     appMsg:
       '🚀 **Shahzod Web Studio** ochilmoqda…\n\nIlovani Telegram orqali ishga tushirish uchun quyidagi tugmani bosing:',
     helpText:
-      '❓ **Yordam — Shahzod Web Studio**\n\nZamonaviy saytlar, Telegram-botlar va Mini Apps yaratamiz.\n\n🚀 Ilovani ochish: /app\n🔐 Ro\'yxatdan o\'tish: /register\n🚀 Buyurtma: /order\n💼 Xizmatlar: /services\n🎨 Portfolio: /portfolio\n📦 Buyurtmalarim: /orders\n👤 Profil: /profile\n\n📋 Asosiy menyu: /start\n\n💬 Telegram: @shahzodwebstudio\n📧 Email: hello@shahzodstudio.com',
+      '❓ **Yordam — Shahzod Web Studio**\n\nZamonaviy saytlar, Telegram-botlar va Mini Apps yaratamiz.\n\n🚀 Ilovani ochish: /app\n🔐 Ro\'yxatdan o\'tish: /register\n🚀 Buyurtma: /order\n💼 Xizmatlar: /services\n🎨 Portfolio: /portfolio\n📦 Buyurtmalarim: /orders\n👤 Profil: /profile\n\n📋 Asosiy menyu: /start\n\n💬 Telegram: https://t.me/shahzodwebstudio\n📧 Email: hello@shahzodstudio.com',
     chooseLang: '🌐 Tilni tanlang:',
     contactText:
-      '📞 **Biz bilan bog‘lanish**\n\nBizga yozing — doim aloqadamiz.\n\n💬 Telegram: @shahzodwebstudio\n📧 Email: hello@shahzodstudio.com\n🌐 Sayt: shahzodstudio.com',
+      '📞 **Biz bilan bog‘lanish**\n\nBizga yozing — doim aloqadamiz.\n\n💬 Telegram: https://t.me/shahzodwebstudio\n📧 Email: hello@shahzodstudio.com\n🌐 Sayt: shahzodstudio.com',
     servicesText: '🛠 **Xizmatlarimiz:**\n\n🌐 Landing Page\n🏢 Business Website\n🛒 E-commerce\n🤖 AI Website\n📱 Telegram Mini App\n🤖 Telegram Bot\n⚙️ Web App\n📊 Admin Panel\n🔥 Custom Project\n\nTafsilotlar Mini Appda!',
   },
   en: {
@@ -77,10 +77,10 @@ const LANG = {
     appMsg:
       '🚀 Opening **Shahzod Web Studio**…\n\nTap the button below to launch the app right inside Telegram:',
     helpText:
-      '❓ **Help — Shahzod Web Studio**\n\nWe build modern websites, Telegram bots and Mini Apps.\n\n🚀 Open the app: /app\n🔐 Register: /register\n🚀 Order: /order\n💼 Services: /services\n🎨 Portfolio: /portfolio\n📦 My orders: /orders\n👤 Profile: /profile\n\n📋 Main menu: /start\n\n💬 Telegram: @shahzodwebstudio\n📧 Email: hello@shahzodstudio.com',
+      '❓ **Help — Shahzod Web Studio**\n\nWe build modern websites, Telegram bots and Mini Apps.\n\n🚀 Open the app: /app\n🔐 Register: /register\n🚀 Order: /order\n💼 Services: /services\n🎨 Portfolio: /portfolio\n📦 My orders: /orders\n👤 Profile: /profile\n\n📋 Main menu: /start\n\n💬 Telegram: https://t.me/shahzodwebstudio\n📧 Email: hello@shahzodstudio.com',
     chooseLang: '🌐 Choose language:',
     contactText:
-      '📞 **Contact us**\n\nWrite to us — we are available 24/7.\n\n💬 Telegram: @shahzodwebstudio\n📧 Email: hello@shahzodstudio.com\n🌐 Site: shahzodstudio.com',
+      '📞 **Contact us**\n\nWrite to us — we are available 24/7.\n\n💬 Telegram: https://t.me/shahzodwebstudio\n📧 Email: hello@shahzodstudio.com\n🌐 Site: shahzodstudio.com',
     servicesText: '🛠 **Our services:**\n\n🌐 Landing Page\n🏢 Business Website\n🛒 E-commerce\n🤖 AI Website\n📱 Telegram Mini App\n🤖 Telegram Bot\n⚙️ Web App\n📊 Admin Panel\n🔥 Custom Project\n\nMore details in Mini App!',
   },
 };
@@ -90,6 +90,7 @@ interface OrderFlowState {
   service: string;
   description: string;
   budget: string;
+  firstName: string;
 }
 
 const SERVICES_LIST = [
@@ -233,13 +234,21 @@ export class StudioBot {
         bot.sendMessage(chatId, this.t(chatId, 'servicesText'), { reply_markup: { inline_keyboard: [[{ text: this.t(chatId, 'openApp'), web_app: { url: this.appUrl('/services') } }]] } }).catch(() => {});
       } else if (data === 'contact') {
         bot.answerCallbackQuery(query.id).catch(() => {});
-        bot.sendMessage(chatId, this.t(chatId, 'contactText')).catch(() => {});
+        bot.sendMessage(chatId, this.t(chatId, 'contactText'), {
+          parse_mode: 'Markdown',
+          reply_markup: {
+            inline_keyboard: [
+              [{ text: '💬 Открыть Telegram', url: 'https://t.me/shahzodwebstudio' }],
+              [{ text: '📧 Написать на Email', url: 'mailto:hello@shahzodstudio.com' }],
+            ],
+          },
+        }).catch(() => {});
       } else if (data === 'register') {
         bot.answerCallbackQuery(query.id).catch(() => {});
         this.sendRegisterPrompt(chatId);
       } else if (data === 'start_order') {
         bot.answerCallbackQuery(query.id).catch(() => {});
-        this.startOrderFlow(chatId, msg.from?.first_name || '');
+        this.startOrderFlow(chatId, query.from?.first_name || msg.from?.first_name || '');
       } else {
         bot.answerCallbackQuery(query.id).catch(() => {});
       }
@@ -330,7 +339,7 @@ export class StudioBot {
 
   private startOrderFlow(chatId: number, firstName: string): void {
     const bot = this.bot!;
-    this.orderFlows.set(chatId, { step: 'service', service: '', description: '', budget: '' });
+    this.orderFlows.set(chatId, { step: 'service', service: '', description: '', budget: '', firstName });
 
     const keyboard: TelegramBot.InlineKeyboardButton[][] = [];
     for (let i = 0; i < SERVICES_LIST.length; i += 2) {
@@ -413,12 +422,16 @@ export class StudioBot {
     const budget = isNaN(budgetNum) ? null : budgetNum;
 
     try {
-      const user = await db.findOrCreateUser({
-        telegramId: String(chatId),
-        username: null,
-        firstName: 'User',
-        language: 'ru',
-      });
+      // Find the existing user or create with proper info
+      let user = await db.findUserByTelegramId(String(chatId));
+      if (!user) {
+        user = await db.findOrCreateUser({
+          telegramId: String(chatId),
+          username: null,
+          firstName: flow.firstName || 'User',
+          language: 'ru',
+        });
+      }
 
       const order = await db.createOrder({
         userId: user.id,
@@ -640,7 +653,8 @@ export class StudioBot {
     const openBtn = urlButton('📦 Открыть заявку', `${config.adminUrl}?open=orders`);
     if (openBtn) buttons.push(openBtn);
     if (client.telegramId) {
-      const contactBtn = urlButton('💬 Связаться с клиентом', `tg://user?id=${client.telegramId}`);
+      const contactUrl = client.username ? `https://t.me/${client.username}` : `tg://user?id=${client.telegramId}`;
+      const contactBtn = urlButton('💬 Связаться с клиентом', contactUrl);
       if (contactBtn) buttons.push(contactBtn);
     }
     const statusBtn = urlButton('🔄 Изменить статус', `${config.adminUrl}?open=orders&id=${order.id}`);

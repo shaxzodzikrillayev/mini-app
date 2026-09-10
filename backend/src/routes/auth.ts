@@ -84,6 +84,88 @@ router.get('/me', authTelegram, async (req: AuthedRequest, res) => {
   res.json(publicUser(req.user));
 });
 
+// Link an email account to the current Telegram user.
+// After linking, the email account's telegramId is set to the current user's telegramId,
+// and all orders are transferred.
+router.post('/link-email', authTelegram, async (req: AuthedRequest, res) => {
+  if (!req.user) return res.status(401).json({ error: 'Не авторизован.' });
+
+  const email = String(req.body?.email || '').trim().toLowerCase();
+  const password = String(req.body?.password || '');
+
+  if (!email || !password) return res.status(400).json({ error: 'Введите email и пароль.' });
+
+  const emailUser = await db.findUserByEmail(email);
+  if (!emailUser || !emailUser.passwordHash || !verifyPassword(password, emailUser.passwordHash)) {
+    return res.status(401).json({ error: 'Неверный email или пароль.' });
+  }
+
+  // If the email account already has a different telegramId, warn
+  if (emailUser.telegramId && emailUser.telegramId !== req.user.telegramId) {
+    return res.status(409).json({ error: 'Этот email уже привязан к другому Telegram аккаунту.' });
+  }
+
+  // If the email account IS already the same user, nothing to do
+  if (emailUser.id === req.user.id) {
+    return res.json({ ok: true, message: 'Аккаунт уже привязан.' });
+  }
+
+  // Link: set the email user's telegramId to the current Telegram user's telegramId
+  // and transfer orders from the current Telegram user to the email user
+  const telegramUser = req.user;
+
+  // Update email user with telegram info
+  await db.updateUser(emailUser.id, {
+    telegramId: telegramUser.telegramId || null,
+    username: emailUser.username || telegramUser.username,
+  });
+
+  // Transfer orders from telegram user to email user
+  const telegramOrders = await db.getOrdersByUser(telegramUser.id);
+  for (const order of telegramOrders) {
+    await db.updateOrder(order.id, { userId: emailUser.id } as any);
+  }
+
+  // Return the email user (now linked) plus a token so the client can switch session
+  const updated = await db.getUser(emailUser.id);
+  if (!updated) return res.status(500).json({ error: 'Не удалось загрузить аккаунт.' });
+  const token = signUserToken(updated.id);
+  res.json({ ok: true, token, user: publicUser(updated) });
+});
+
+// Create a password + email for the current Telegram-only account.
+// After that the user can log in with email/password from any device.
+router.post('/set-email', authTelegram, async (req: AuthedRequest, res) => {
+  if (!req.user) return res.status(401).json({ error: 'Не авторизован.' });
+
+  if (req.user.email) {
+    return res.status(400).json({ error: 'У аккаунта уже есть email.' });
+  }
+
+  const email = String(req.body?.email || '').trim().toLowerCase();
+  const password = String(req.body?.password || '');
+  const confirm = String(req.body?.confirm || '');
+
+  if (!EMAIL_RE.test(email)) return res.status(400).json({ error: 'Введите корректный email.' });
+  if (password.length < 6) return res.status(400).json({ error: 'Пароль должен содержать минимум 6 символов.' });
+  if (password !== confirm) return res.status(400).json({ error: 'Пароли не совпадают.' });
+
+  const existing = await db.findUserByEmail(email);
+  if (existing && existing.id !== req.user.id) {
+    return res.status(409).json({ error: 'Этот email уже используется другим аккаунтом.' });
+  }
+
+  await db.updateUser(req.user.id, {
+    email,
+    passwordHash: hashPassword(password),
+  });
+
+  const updated = await db.getUser(req.user.id);
+  if (!updated) return res.status(500).json({ error: 'Не удалось обновить аккаунт.' });
+  const token = signUserToken(updated.id);
+  res.json({ ok: true, token, user: publicUser(updated) });
+});
+
 // Update profile (name, username, language, password).
 router.put('/update', authTelegram, async (req: AuthedRequest, res) => {
   const user = await db.getUser(req.user.id);

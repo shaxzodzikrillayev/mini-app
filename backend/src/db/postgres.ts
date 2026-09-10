@@ -85,6 +85,7 @@ export class PostgresDb implements Db {
       email: 'email',
       passwordHash: 'password_hash',
       language: 'language',
+      telegramId: 'telegram_id',
     };
     const keys = Object.keys(data).filter((k) => colMap[k] && data[k as keyof User] !== undefined);
     if (!keys.length) return this.getUser(id);
@@ -141,10 +142,17 @@ export class PostgresDb implements Db {
   }
 
   async updateOrder(id: number, data: Partial<Order>): Promise<Order | undefined> {
-    const allowed = ['service', 'description', 'budget', 'price', 'status'];
-    const keys = Object.keys(data).filter((k) => allowed.includes(k));
+    const colMap: Record<string, string> = {
+      service: 'service',
+      description: 'description',
+      budget: 'budget',
+      price: 'price',
+      status: 'status',
+      userId: 'user_id',
+    };
+    const keys = Object.keys(data).filter((k) => colMap[k]);
     if (!keys.length) return this.getOrder(id);
-    const set = keys.map((k, i) => `${k}=$${i + 1}`).join(', ');
+    const set = keys.map((k, i) => `${colMap[k]}=$${i + 1}`).join(', ');
     const values = keys.map((k) => (data as any)[k]);
     const { rows } = await this.pool.query(
       `UPDATE orders SET ${set}, updated_at=NOW() WHERE id=$${keys.length + 1} RETURNING *`,
