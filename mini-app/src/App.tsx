@@ -26,7 +26,25 @@ function RequireAuth({ children }: { children: ReactNode }) {
     );
   }
   if (!user && !isTelegram) {
-    return <Navigate to="/login" state={{ from: loc.pathname }} replace />;
+    return <Navigate to="/register" state={{ from: loc.pathname }} replace />;
+  }
+  return <>{children}</>;
+}
+
+function RequireAuthOrPublic({ children }: { children: ReactNode }) {
+  const { user, hydrated, isTelegram } = useAuth();
+  const loc = useLocation();
+
+  if (!hydrated) {
+    return (
+      <div className="app-bg flex min-h-screen items-center justify-center">
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-[var(--brand)] border-t-transparent" />
+      </div>
+    );
+  }
+  // If not authenticated and on the root page, redirect to register
+  if (!user && !isTelegram && loc.pathname === '/') {
+    return <Navigate to="/register" replace />;
   }
   return <>{children}</>;
 }
@@ -42,7 +60,7 @@ export default function App() {
     <>
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<RequireAuthOrPublic><Home /></RequireAuthOrPublic>} />
           <Route path="/services" element={<Services />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route

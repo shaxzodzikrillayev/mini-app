@@ -45,7 +45,7 @@ export interface Order {
   status: OrderStatus;
   createdAt: string;
   updatedAt: string;
-  user?: { id: number; firstName: string; username: string | null } | null;
+  user?: { id: number; firstName: string; username: string | null; telegramId: string | null } | null;
 }
 
 export interface User {

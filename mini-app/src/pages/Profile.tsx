@@ -10,7 +10,7 @@ import { haptic } from '../lib/telegram';
 
 export default function Profile() {
   const nav = useNavigate();
-  const { user, logout, setUser, isTelegram } = useAuth();
+  const { user, logout, setUser, isTelegram, linkEmail, setEmail } = useAuth();
   const { data, loading, error, reload } = useApi<Me>(user && user.authType === 'telegram' ? '/me' : null);
 
   const [editing, setEditing] = useState(false);
@@ -20,6 +20,11 @@ export default function Profile() {
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [saving, setSaving] = useState(false);
+  const [linking, setLinking] = useState(false);
+  const [linkMode, setLinkMode] = useState<'link' | 'create'>('link');
+  const [linkEmailVal, setLinkEmailVal] = useState('');
+  const [linkPass, setLinkPass] = useState('');
+  const [linkConfirm, setLinkConfirm] = useState('');
 
   const firstNameSafe = user?.firstName || 'Гость';
   const usernameSafe = user?.username || null;
@@ -74,6 +79,32 @@ export default function Profile() {
   const handleLogout = () => {
     logout();
     nav('/');
+  };
+
+  const handleLinkEmail = async () => {
+    if (!linkEmailVal.trim() || !linkPass) {
+      toast.error('Введите email и пароль');
+      return;
+    }
+    setLinking(true);
+    let ok = false;
+    if (linkMode === 'link') {
+      ok = await linkEmail(linkEmailVal.trim(), linkPass);
+    } else {
+      if (!linkConfirm || linkConfirm !== linkPass) {
+        toast.error('Пароли не совпадают');
+        setLinking(false);
+        return;
+      }
+      ok = await setEmail({ email: linkEmailVal.trim(), password: linkPass, confirm: linkConfirm });
+    }
+    setLinking(false);
+    if (ok) {
+      setLinkEmailVal('');
+      setLinkPass('');
+      setLinkConfirm('');
+      reload();
+    }
   };
 
   return (
@@ -140,6 +171,61 @@ export default function Profile() {
         </div>
 
         <Button variant="soft" block onClick={() => setEditing(true)}>✏️ Редактировать профиль</Button>
+        {isTelegram && !user?.email && (
+          <div className="card space-y-3 p-4">
+            <div>
+              <p className="text-main text-sm font-bold">🔗 Email для входа</p>
+              <p className="text-hint mt-0.5 text-xs">Войдите с другого устройства. Привяжите существующий аккаунт или создайте email и пароль.</p>
+            </div>
+            <div className="flex gap-1.5">
+              <button
+                onClick={() => { setLinkMode('link'); setLinkConfirm(''); }}
+                className={`flex-1 rounded-xl px-3 py-2 text-xs font-bold transition-colors ${
+                  linkMode === 'link' ? 'btn-primary' : 'btn-soft'
+                }`}
+              >
+                Привязать аккаунт
+              </button>
+              <button
+                onClick={() => { setLinkMode('create'); setLinkConfirm(''); }}
+                className={`flex-1 rounded-xl px-3 py-2 text-xs font-bold transition-colors ${
+                  linkMode === 'create' ? 'btn-primary' : 'btn-soft'
+                }`}
+              >
+                Создать email
+              </button>
+            </div>
+            <input
+              className="field"
+              value={linkEmailVal}
+              onChange={(e) => setLinkEmailVal(e.target.value)}
+              placeholder="you@example.com"
+              inputMode="email"
+              autoComplete="email"
+            />
+            <input
+              className="field"
+              type="password"
+              value={linkPass}
+              onChange={(e) => setLinkPass(e.target.value)}
+              placeholder={linkMode === 'create' ? 'Придумайте пароль' : 'Пароль'}
+              autoComplete={linkMode === 'create' ? 'new-password' : 'current-password'}
+            />
+            {linkMode === 'create' && (
+              <input
+                className="field"
+                type="password"
+                value={linkConfirm}
+                onChange={(e) => setLinkConfirm(e.target.value)}
+                placeholder="Повторите пароль"
+                autoComplete="new-password"
+              />
+            )}
+            <Button variant="soft" block loading={linking} onClick={handleLinkEmail}>
+              {linking ? 'Сохранение...' : linkMode === 'link' ? 'Привязать аккаунт' : 'Создать email и пароль'}
+            </Button>
+          </div>
+        )}
         <Button variant="ghost" block onClick={handleLogout}>🚪 Выйти из аккаунта</Button>
       </div>
 

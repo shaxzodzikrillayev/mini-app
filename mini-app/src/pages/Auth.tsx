@@ -59,7 +59,21 @@ export default function AuthPage({ mode }: Props) {
           <div className="mb-8 flex flex-col items-center text-center">
             <Logo size="lg" />
             <h1 className="text-main mt-4 text-2xl font-extrabold tracking-tight">Shahzod Web Studio</h1>
-            <p className="text-hint mt-1 text-sm">{isLogin ? 'С возвращением! Войдите в аккаунт' : 'Создайте аккаунт, чтобы отслеживать заказы'}</p>
+            <p className="text-hint mt-1 text-sm">
+              {isLogin
+                ? 'С возвращением! Войдите в аккаунт'
+                : 'Создайте аккаунт, чтобы пользоваться приложением'}
+            </p>
+            {!isLogin && (
+              <div className="mt-3 flex flex-col gap-1.5 text-center">
+                <p className="accent-color text-xs font-semibold">После регистрации вы сможете:</p>
+                <div className="flex flex-wrap justify-center gap-2 text-xs text-[var(--tg-theme-hint-color, #8e8e93)]">
+                  <span>📦 Заказывать проекты</span>
+                  <span>💬 Общаться с командой</span>
+                  <span>📊 Отслеживать заказы</span>
+                </div>
+              </div>
+            )}
           </div>
 
           <div className="card space-y-4 p-5">
@@ -131,7 +145,7 @@ export default function AuthPage({ mode }: Props) {
             )}
 
             <Button block loading={loading} onClick={submit} className="mt-1">
-              {loading ? 'Пожалуйста, подождите...' : isLogin ? 'Войти' : 'Создать аккаунт'}
+              {loading ? 'Пожалуйста, подождите...' : isLogin ? 'Войти' : 'Зарегистрироваться'}
             </Button>
           </div>
 

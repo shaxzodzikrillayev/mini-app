@@ -149,7 +149,25 @@ export default function OrderDetail() {
           </div>
 
           <div className="mt-4 space-y-3 text-sm">
-            <Row label="Клиент" value={order.user ? `${order.user.firstName} (@${order.user.username || '—'})` : '—'} />
+            <Row label="Услуга" value={order.service} />
+            <div className="flex items-center justify-between">
+              <span className="text-gray-500 dark:text-gray-400">Клиент</span>
+              <span className="font-medium text-gray-900 dark:text-gray-100">
+                {order.user ? (
+                  order.user.telegramId ? (
+                    <a
+                      href={`https://t.me/${order.user.username || `id${order.user.telegramId}`}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-indigo-600 hover:underline dark:text-indigo-400"
+                    >
+                      {order.user.firstName} (@{order.user.username || '—'})
+                      <span className="text-xs opacity-60">↗</span>
+                    </a>
+                  ) : `${order.user.firstName} (@${order.user.username || '—'})`
+                ) : '—'}
+              </span>
+            </div>
             <Row label="Услуга" value={order.service} />
             <Row label="Бюджет" value={order.budget != null ? `$${order.budget}` : '—'} />
             <div className="flex items-center justify-between">

@@ -93,7 +93,19 @@ export default function Orders() {
                     {o.user ? (
                       <div>
                         <p className="font-medium text-gray-900 dark:text-gray-100">{o.user.firstName}</p>
-                        <p className="text-xs text-gray-400">@{o.user.username || '—'}</p>
+                        {o.user.telegramId ? (
+                          <a
+                            href={`https://t.me/${o.user.username || `id${o.user.telegramId}`}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-xs text-indigo-600 hover:underline dark:text-indigo-400"
+                          >
+                            @{o.user.username || '—'}
+                            <span className="text-[10px] opacity-60">↗</span>
+                          </a>
+                        ) : (
+                          <p className="text-xs text-gray-400">@{o.user.username || '—'}</p>
+                        )}
                       </div>
                     ) : (
                       <span className="text-gray-400">—</span>

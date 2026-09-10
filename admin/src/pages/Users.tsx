@@ -37,7 +37,19 @@ export default function Users() {
               <tr key={u.id} className="border-b border-gray-100 dark:border-gray-700/50">
                 <td className="px-4 py-3 font-medium text-gray-900 dark:text-gray-100">{u.firstName}</td>
                 <td className="px-4 py-3 text-gray-500 dark:text-gray-400">@{u.username || '—'}</td>
-                <td className="px-4 py-3 text-gray-600 dark:text-gray-300">{u.telegramId}</td>
+                <td className="px-4 py-3 text-gray-600 dark:text-gray-300">
+                  {u.telegramId ? (
+                    <a
+                      href={`https://t.me/${u.username || `id${u.telegramId}`}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-indigo-600 hover:underline dark:text-indigo-400"
+                    >
+                      {u.telegramId}
+                      <span className="text-xs opacity-60">↗</span>
+                    </a>
+                  ) : '—'}
+                </td>
                 <td className="px-4 py-3">{langLabel[u.language] || u.language}</td>
                 <td className="px-4 py-3 text-gray-500 dark:text-gray-400">{formatDate(u.createdAt)}</td>
               </tr>

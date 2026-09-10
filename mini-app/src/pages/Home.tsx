@@ -10,7 +10,7 @@ const ICON_FOR: Record<string, string> = {
 };
 
 export default function Home() {
-  const { user } = useAuth();
+  const { user, isTelegram } = useAuth();
   const nav = useNavigate();
   const services = useApi<Service[]>('/services');
   const projects = useApi<Project[]>('/projects');
@@ -31,6 +31,21 @@ export default function Home() {
 
   return (
     <div className="animate-fade-in space-y-6">
+      {/* Telegram account without email — suggest linking so orders are accessible from any device */}
+      {isTelegram && !user?.email && (
+        <section className="px-4">
+          <div className="card flex items-start gap-3 border-l-4 !border-l-[var(--brand)] p-4">
+            <span className="text-xl">🔗</span>
+            <div className="min-w-0 flex-1">
+              <p className="text-main text-sm font-bold">Привяжите Email</p>
+              <p className="text-hint mt-0.5 text-xs">Чтобы входить в аккаунт с любого устройства и не потерять заказы.</p>
+              <Button variant="soft" onClick={() => nav('/profile')} className="mt-2 !px-3 !py-1.5 text-xs">
+                Привязать сейчас ➜
+              </Button>
+            </div>
+          </div>
+        </section>
+      )}
       {/* Hero */}
       <section className="px-4 pt-2">
         <div className="card relative overflow-hidden p-6">
